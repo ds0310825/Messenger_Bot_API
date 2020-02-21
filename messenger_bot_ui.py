@@ -1,0 +1,93 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'C:\Users\user\PycharmProjects\crawler\Messenger_Bot_Project\messenger_bot.ui'
+#
+# Created by: PyQt5 UI code generator 5.11.3
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(640, 393)
+        self.command_listview = QtWidgets.QListView(Dialog)
+        self.command_listview.setGeometry(QtCore.QRect(370, 20, 256, 311))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.command_listview.setFont(font)
+        self.command_listview.setObjectName("command_listview")
+        self.formLayoutWidget = QtWidgets.QWidget(Dialog)
+        self.formLayoutWidget.setGeometry(QtCore.QRect(20, 180, 331, 81))
+        self.formLayoutWidget.setObjectName("formLayoutWidget")
+        self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
+        self.formLayout.setContentsMargins(0, 0, 0, 0)
+        self.formLayout.setObjectName("formLayout")
+        self.label = QtWidgets.QLabel(self.formLayoutWidget)
+        self.label.setObjectName("label")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label)
+        self.label_2 = QtWidgets.QLabel(self.formLayoutWidget)
+        self.label_2.setObjectName("label_2")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_2)
+        self.command = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.command.setMinimumSize(QtCore.QSize(0, 35))
+        self.command.setObjectName("command")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.command)
+        self.reply = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.reply.setMinimumSize(QtCore.QSize(0, 35))
+        self.reply.setObjectName("reply")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.reply)
+        self.delete_selected = QtWidgets.QPushButton(Dialog)
+        self.delete_selected.setGeometry(QtCore.QRect(370, 350, 93, 28))
+        self.delete_selected.setAutoDefault(False)
+        self.delete_selected.setObjectName("delete_selected")
+        self.open = QtWidgets.QPushButton(Dialog)
+        self.open.setGeometry(QtCore.QRect(20, 350, 93, 28))
+        self.open.setObjectName("open")
+        self.formLayoutWidget_2 = QtWidgets.QWidget(Dialog)
+        self.formLayoutWidget_2.setGeometry(QtCore.QRect(20, 20, 331, 143))
+        self.formLayoutWidget_2.setObjectName("formLayoutWidget_2")
+        self.formLayout_2 = QtWidgets.QFormLayout(self.formLayoutWidget_2)
+        self.formLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.formLayout_2.setObjectName("formLayout_2")
+        self.label_3 = QtWidgets.QLabel(self.formLayoutWidget_2)
+        self.label_3.setObjectName("label_3")
+        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_3)
+        self.label_4 = QtWidgets.QLabel(self.formLayoutWidget_2)
+        self.label_4.setObjectName("label_4")
+        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_4)
+        self.label6 = QtWidgets.QLabel(self.formLayoutWidget_2)
+        self.label6.setObjectName("label6")
+        self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label6)
+        self.account = QtWidgets.QLineEdit(self.formLayoutWidget_2)
+        self.account.setMinimumSize(QtCore.QSize(0, 35))
+        self.account.setObjectName("account")
+        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.account)
+        self.password = QtWidgets.QLineEdit(self.formLayoutWidget_2)
+        self.password.setMinimumSize(QtCore.QSize(0, 35))
+        self.password.setObjectName("password")
+        self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.password)
+        self.chat_room_url = QtWidgets.QLineEdit(self.formLayoutWidget_2)
+        self.chat_room_url.setMinimumSize(QtCore.QSize(0, 35))
+        self.chat_room_url.setObjectName("chat_room_url")
+        self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.chat_room_url)
+        self.add_command = QtWidgets.QPushButton(Dialog)
+        self.add_command.setGeometry(QtCore.QRect(260, 270, 93, 28))
+        self.add_command.setObjectName("add_command")
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Messenger Bot API"))
+        self.label.setText(_translate("Dialog", "指令"))
+        self.label_2.setText(_translate("Dialog", "答覆"))
+        self.delete_selected.setText(_translate("Dialog", "刪除選中"))
+        self.open.setText(_translate("Dialog", "啟動"))
+        self.label_3.setText(_translate("Dialog", "帳號"))
+        self.label_4.setText(_translate("Dialog", "密碼"))
+        self.label6.setText(_translate("Dialog", "聊天室網址"))
+        self.add_command.setText(_translate("Dialog", "加入"))
+
