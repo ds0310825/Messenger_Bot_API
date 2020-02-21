@@ -1,2 +1,2 @@
-# Messenger_Bot_API
-a student's work
+# Messenger_Bot_API (for Group Chat)
+
