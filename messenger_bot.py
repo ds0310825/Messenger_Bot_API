@@ -51,8 +51,11 @@ def run(account, password, chat_room_url, command_list):
     driver.find_element_by_id("pass").send_keys(password)
     driver.find_element_by_id("pass").send_keys(u'\ue007')
 
+    # wait = ui.WebDriverWait(driver, 10)
+    sleep(10)
     driver.get(chat_room_url)
     print(chat_room_url)
+    # driver.click()
     wait = ui.WebDriverWait(driver, 10)
 
     san_nsfw_state = True
@@ -187,15 +190,54 @@ def run(account, password, chat_room_url, command_list):
                 driver.switch_to_active_element().send_keys(" " + " ".join(inputs[1:]) + r' Not Found!!!')
             driver.switch_to_active_element().send_keys(u'\ue007')
 
+    def cat_search():
+        try:
+            if input_mes == 'cat':
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0'}
+                req = urllib.request.Request(url=r'https://unsplash.com/images/animals/cat', headers=headers)
+
+                html = urlopen(req).read()
+                review = BeautifulSoup(html, 'lxml')
+                images = review.findAll('img', attrs={'class': '_2zEKz'})
+                print(len(images))
+                driver.switch_to_active_element().send_keys(images[random.randint(1, len(images) - 1)]['src'])
+                wait.until(lambda driver: driver.find_element_by_css_selector("[class='_4yp9']"))
+                driver.switch_to_active_element().send_keys(u'\ue007')
+        except Exception as e:
+            print('error')
+            print('\n!!!', e)
+
+    def send_pig():
+        inputs = input_mes.split(' ')
+        if inputs[0] == 'pig':
+
+            sleep(1)
+            driver.find_element_by_class_name('_7mki').click()
+            sleep(1)
+            driver.find_elements_by_class_name('_7oal')[8].click()
+            sleep(1)
+            driver.find_elements_by_class_name('_5r8a')[2].click()
+            sleep(1)
+            for _ in range(int(inputs[2]) if int(inputs[2]) <= 5 else 5):
+                driver.find_elements_by_class_name('_5r8i')[int(inputs[1])].click()
+                sleep(0.2)
+
+            driver.switch_to_active_element().send_keys('---UWU---')
+            driver.switch_to_active_element().send_keys(u'\ue007')
+
     i2_last = 0
 
     # os.system('cls')
+
+    # sleep(20)
 
     print('running')
 
     input_mes = ''
 
     while True:
+        # wait.until(lambda driver: driver.find_element_by_css_selector("[class='_58nk']"))
         i2 = driver.find_elements_by_class_name('_58nk')
         try:
             if i2_last == i2:
@@ -211,32 +253,44 @@ def run(account, password, chat_room_url, command_list):
             try:
                 msg_printer('bot test', "測試成功")
             except Exception as e:
-                print('msg_test error')
+                print('msg_test')
                 print(e)
 
             try:
                 for command, reply in command_list.items():
                     msg_printer(command, reply)
             except Exception as e:
-                print('command error')
+                print('command')
                 print(e)
 
             try:
                 nhentai_search()
             except Exception as e:
-                print('nh error')
+                print('nh')
                 print(e)
 
             try:
                 sankaku_search()
             except Exception as e:
-                print('sankaku error')
+                print('sankaku')
                 print(e)
 
             try:
                 san_nsfw_check()
             except Exception as e:
-                print('sankaku_nsfw error')
+                print('sankaku_nsfw')
+                print(e)
+
+            try:
+                send_pig()
+            except Exception as e:
+                print('pig')
+                print(e)
+
+            try:
+                cat_search()
+            except Exception as e:
+                print('cat')
                 print(e)
 
         except:
@@ -353,7 +407,109 @@ class AppWindow(QDialog):
         # print(command_list)
 
 
+import zipfile
+import os
+import json
+import logging
+from win32com import client as wincom_client
+import requests
+
+CHROME_DRIVER_BASE_URL = "https://chromedriver.storage.googleapis.com"
+CHROME_DRIVER_FOLDER = r"."
+CHROME_DRIVER_MAPPING_FILE = r"{}\mapping.json".format(CHROME_DRIVER_FOLDER)
+CHROME_DRIVER_EXE = r"{}\chrmoedriver.exe".format(CHROME_DRIVER_FOLDER)
+CHROME_DRIVER_ZIP = r"{}\chromedriver_win32.zip".format(CHROME_DRIVER_FOLDER)
+
+
+def get_file_version(file_path):
+    logging.info('Get file version of [%s]', file_path)
+    if not os.path.isfile(file_path):
+        raise FileNotFoundError("{!r} is not found.".format(file_path))
+
+    wincom_obj = wincom_client.Dispatch('Scripting.FileSystemObject')
+    version = wincom_obj.GetFileVersion(file_path)
+    logging.info('The file version of [%s] is %s', file_path, version)
+    return version.strip()
+
+
+def write_json(file_path, data):
+    with open(file_path, "w") as f:
+        json.dump(data, f, indent=2)
+
+
+def read_json(file_path):
+    with open(file_path, "r") as f:
+        data = json.load(f)
+    return data
+
+
+def get_chrome_driver_major_version():
+    chrome_browser_path = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    chrome_ver = get_file_version(chrome_browser_path)
+    chrome_major_ver = chrome_ver.split(".")[0]
+    return chrome_major_ver
+
+
+def get_latest_driver_version(browser_ver):
+    latest_api = "{}/LATEST_RELEASE_{}".format(
+        CHROME_DRIVER_BASE_URL, browser_ver)
+    resp = requests.get(latest_api)
+    lastest_driver_version = resp.text.strip()
+    return lastest_driver_version
+
+
+def download_driver(driver_ver, dest_folder):
+    download_api = "{}/{}/chromedriver_win32.zip".format(
+        CHROME_DRIVER_BASE_URL, driver_ver)
+    dest_path = os.path.join(dest_folder, os.path.basename(download_api))
+    resp = requests.get(download_api, stream=True, timeout=300)
+
+    if resp.status_code == 200:
+        with open(dest_path, "wb") as f:
+            f.write(resp.content)
+        logging.info("Download driver completed")
+    else:
+        raise Exception("Download chrome driver failed")
+
+
+def unzip_driver_to_target_path(src_file, dest_path):
+    with zipfile.ZipFile(src_file, 'r') as zip_ref:
+        zip_ref.extractall(dest_path)
+    logging.info("Unzip [{}] -> [{}]".format(src_file, dest_path))
+
+
+def read_driver_mapping_file():
+    driver_mapping_dict = {}
+    if os.path.exists(CHROME_DRIVER_MAPPING_FILE):
+        driver_mapping_dict = read_json(CHROME_DRIVER_MAPPING_FILE)
+    return driver_mapping_dict
+
+
+def check_browser_driver_available():
+    # if not os.path.isdir(CHROME_DRIVER_FOLDER):
+    #     os.mkdir(CHROME_DRIVER_FOLDER)
+
+    chrome_major_ver = get_chrome_driver_major_version()
+    mapping_dict = read_driver_mapping_file()
+    driver_ver = get_latest_driver_version(chrome_major_ver)
+
+    if chrome_major_ver not in mapping_dict:
+        download_driver(driver_ver, CHROME_DRIVER_FOLDER)
+        unzip_driver_to_target_path(CHROME_DRIVER_ZIP, CHROME_DRIVER_FOLDER)
+
+        mapping_dict = {
+            chrome_major_ver: {
+                "driver_path": CHROME_DRIVER_EXE,
+                "driver_version": driver_ver
+            }
+        }
+        mapping_dict.update(mapping_dict)
+        write_json(CHROME_DRIVER_MAPPING_FILE, mapping_dict)
+
+
 if __name__ == '__main__':
+    check_browser_driver_available()
+
     app = QApplication(sys.argv)
     w = AppWindow()
     w.show()
