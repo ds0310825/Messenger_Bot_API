@@ -10,4 +10,12 @@
 
 使用時需有FaceBook帳號 和 確認是否已加入該聊天室  
 
+EXE檔可以於下面的網址下載:  
+https://drive.google.com/open?id=1CtLsv1WF8OaLYsEjx2jKATZPRsmC_GNr
 
+# Introduction  
+  
+![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/02.png)  
+![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/01.png)
+
+  
