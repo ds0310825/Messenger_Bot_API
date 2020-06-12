@@ -1,5 +1,8 @@
 # Messenger_Bot_API (for Group Chat)
 
+# EXE檔突然不行了?!?!?!?!?!?!?!?!
+# 電腦是由魔法組成的
+
 非官方API  
 用於群組聊天室  
 輸入關鍵字會自動回覆  
