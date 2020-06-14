@@ -19,17 +19,18 @@ EXE檔突然不行了?!?!?!?!?!?!?!?!
 電腦是由魔法組成的......  
 所以把它改成有視窗浮出的  
 記得不要用鼠標去點擊搗亂它喔  
-
+  
 # Introduction  
   
 ![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/02.png)  
 ![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/01.png)
-
-## 預設指令
-
-圖片搜尋：san {tags what you want}
-  ex：san helltaker
-  ex：san helltaker 3girls
   
-隨機貓貓：cat
-  ex：cat
+## 預設指令
+  
+圖片搜尋：san {tags what you want}  
+  ex：san helltaker  
+  ex：san helltaker 3girls  
+   
+隨機貓貓：cat  
+  ex：cat  
+   
