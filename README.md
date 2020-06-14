@@ -33,6 +33,8 @@ https://drive.google.com/open?id=1CtLsv1WF8OaLYsEjx2jKATZPRsmC_GNr
 
 6/12：Bug炸出  
 EXE檔突然不行了?!?!?!?!?!?!?!?!  
+
+  
 6/12：Bug解決??
 突然又好了...(已知是因為無視窗模式所造成，但以前可以啊!)  
 電腦是由魔法組成的......  
