@@ -22,4 +22,11 @@ https://drive.google.com/open?id=1CtLsv1WF8OaLYsEjx2jKATZPRsmC_GNr
 ![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/02.png)  
 ![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/01.png)
 
+## 預設指令
+
+圖片搜尋：san {tags what you want}
+  ex：san helltaker
+  ex：san helltaker 3girls
   
+隨機貓貓：cat
+  ex：cat
