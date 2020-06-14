@@ -13,18 +13,6 @@
 EXE檔可以於下面的網址下載:  
 https://drive.google.com/open?id=1CtLsv1WF8OaLYsEjx2jKATZPRsmC_GNr
 
-6/12：Bug炸出  
-EXE檔突然不行了?!?!?!?!?!?!?!?!  
-6/12：Bug解決??
-突然又好了...(已知是因為無視窗模式所造成，但以前可以啊!)  
-電腦是由魔法組成的......  
-所以把它改成有視窗浮出的  
-記得不要用鼠標去點擊搗亂它喔  
-  
-# Introduction  
-  
-![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/02.png)  
-![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/01.png)
   
 ## 預設指令
   
@@ -34,4 +22,19 @@ EXE檔突然不行了?!?!?!?!?!?!?!?!
    
 隨機貓貓：cat  
   ex：cat  
-   
+ 
+  
+# Introduction  
+  
+![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/02.png)  
+![image](https://github.com/ds0310825/Messenger_Bot_API_-for_Group_Chat-/blob/master/images/01.png)
+
+
+
+6/12：Bug炸出  
+EXE檔突然不行了?!?!?!?!?!?!?!?!  
+6/12：Bug解決??
+突然又好了...(已知是因為無視窗模式所造成，但以前可以啊!)  
+電腦是由魔法組成的......  
+所以把它改成有視窗浮出的  
+記得不要用鼠標去點擊搗亂它喔  
